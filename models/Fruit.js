@@ -15,7 +15,9 @@ class Fruit {
     }
 
     static show = (name) => {
+        console.log("method show");
         const fruit = fruits.filter((fruit) => fruit.name.toLowerCase() == name)
+        console.log("method show fruit", fruit);
         if (fruit.length === 1){
             return new Fruit(fruit[0])
         } else{
@@ -50,8 +52,10 @@ class Fruit {
     }
 
     destroy(){
+        console.log("destroy model hit");
         const deletedFruit = fruits.find(fruit => fruit.name.toLowerCase() === this.name.toLowerCase())
         if(deletedFruit){
+            console.log("fruit found");
             const index = fruits.indexOf(deletedFruit)
             fruits.splice(index, 1)
         } else{

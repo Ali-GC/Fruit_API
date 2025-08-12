@@ -11,6 +11,7 @@ const index = async (req, res) => {
 
 }
 const show = async (req, res) => {
+    console.log("controller show");
     const name = req.params.name.toLowerCase()
     try{
         const fruit = await Fruit.show(name)
@@ -42,9 +43,11 @@ const update = async (req,res) => {
 }
 
 const destroy = async (req,res) => {
+    console.log("destroy hit");
     const name = req.params.name.toLowerCase()
     try{
         const fruit = await Fruit.show(name)
+        console.log("destroy controller returns instance", fruit);
         const result = await fruit.destroy()
         res.sendStatus(204)
     } catch(err){
